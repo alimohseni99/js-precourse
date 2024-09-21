@@ -1,1 +1,4 @@
-alert('Programming is easy');
+function getCompanyName() {
+  return 'SALT';
+}
+console.log('salt> Functions loaded');
