@@ -1,0 +1,45 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="changingCSSWithJS.css" />
+    <title>changingCSSWithJS</title>
+    <script>
+      function addStyle(element, content) {
+        const convertNumber = Number(content);
+
+        if (Number.isNaN(convertNumber)) {
+          return;
+        }
+        if (convertNumber < 0) {
+          element.classList.add('negativ');
+          return;
+        }
+        element.classList.add('positive');
+      }
+
+      function addResultStyling() {
+        const mainResultElements = document.querySelectorAll('.mainResult');
+
+        for (let i = 0; i < mainResultElements.length; i++) {
+          const content = mainResultElements[i].textContent;
+
+          addStyle(mainResultElements[i], content);
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <main>
+      <h1 class="mainResult">1000</h1>
+      <h1 class="mainResult">-1000</h1>
+      <h1 class="mainResult">A name - not a number</h1>
+    </main>
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        console.log("Document is loaded, y'all");
+      });
+      addResultStyling();
+    </script>
+  </body>
+</html>
