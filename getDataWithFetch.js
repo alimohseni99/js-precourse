@@ -6,10 +6,13 @@ function getUsers(element) {
       element.appendChild(userList);
     });
 }
-document.addEventListener('DOMContentLoaded', () => {
+const btn = document.getElementById('searchBtn');
+
+btn.onclick = () => {
+  console.log('test');
   const mainElement = document.querySelector('main');
   getUsers(mainElement);
-});
+};
 
 function createUserList(users) {
   const userList = document.createElement('div');
@@ -37,7 +40,3 @@ function createUserImage(user) {
   userImage.src = `${user.picture.thumbnail}`;
   return userImage;
 }
-document.addEventListener('DOMContentLoaded', () => {
-  const mainElement = document.querySelector('main');
-  getUsers(mainElement);
-});
