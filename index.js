@@ -25,24 +25,3 @@ function removeDivById(id) {
     divToRemove.remove();
   }
 }
-
-function invertColorsOfResults() {
-  const mainResultElements = document.querySelectorAll('.mainResult');
-
-  for (let i = 0; i < mainResultElements.length; i++) {
-    const element = mainResultElements[i];
-    console.log(element.textContent);
-
-    if (element.classList.contains('positive')) {
-      element.classList.remove('positive');
-      element.classList.add('negativ');
-      continue;
-    }
-
-    if (element.classList.contains('negativ')) {
-      element.classList.remove('negativ');
-      element.classList.add('positive');
-      continue;
-    }
-  }
-}
