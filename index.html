@@ -4,12 +4,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="index.js"></script>
     <title>js.precourse</title>
+    <script>
+      console.log('salt> In the head.');
+    </script>
   </head>
+
   <body>
+    <script>
+      console.log('salt> Start of body');
+    </script>
+
     <main>
       <div name="content" class="big bold bright">Content 1</div>
       <div class="big bold" id="companyName">Content 2</div>
       <div name="content" class="big">Content 3</div>
     </main>
+    <script>
+      const companyName = myFunctions.getCompanyName();
+      document.getElementById('companyName').innerHTML = companyName;
+    </script>
   </body>
 </html>
