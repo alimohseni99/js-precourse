@@ -27,6 +27,27 @@
           addStyle(mainResultElements[i], content);
         }
       }
+
+      function invertColorsOfResults() {
+        const mainResultElements = document.querySelectorAll('.mainResult');
+
+        for (let i = 0; i < mainResultElements.length; i++) {
+          const element = mainResultElements[i];
+          console.log(element.textContent);
+
+          if (element.classList.contains('positive')) {
+            element.classList.remove('positive');
+            element.classList.add('negativ');
+            continue;
+          }
+
+          if (element.classList.contains('negativ')) {
+            element.classList.remove('negativ');
+            element.classList.add('positive');
+            continue;
+          }
+        }
+      }
     </script>
   </head>
   <body>
@@ -34,12 +55,17 @@
       <h1 class="mainResult">1000</h1>
       <h1 class="mainResult">-1000</h1>
       <h1 class="mainResult">A name - not a number</h1>
+      <button id="btnInversion">Invert colors</button>
     </main>
     <script>
       document.addEventListener('DOMContentLoaded', function () {
         console.log("Document is loaded, y'all");
       });
       addResultStyling();
+      const btn = document.getElementById('btnInversion');
+      btn.onclick = () => {
+        invertColorsOfResults();
+      };
     </script>
   </body>
 </html>
