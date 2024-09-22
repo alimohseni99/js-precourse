@@ -1,17 +1,27 @@
-function getUsers(element) {
+function getUsers(element, name) {
   fetch('https://randomuser.me/api/?gender=female&results=30')
     .then((response) => response.json())
     .then((data) => {
       const userList = createUserList(data.results);
       element.appendChild(userList);
+
+      let users = data.results;
+      if (name) {
+        users = users.filter((user) =>
+          `${user.name.first} ${user.name.last}`
+            .toLowerCase()
+            .includes(name.toLowerCase())
+        );
+      }
     });
 }
 const btn = document.getElementById('searchBtn');
 
 btn.onclick = () => {
-  console.log('test');
   const mainElement = document.querySelector('main');
-  getUsers(mainElement);
+  const userInput = document.getElementById('userInput').value;
+  console.log(userInput);
+  getUsers(mainElement, userInput);
 };
 
 function createUserList(users) {
