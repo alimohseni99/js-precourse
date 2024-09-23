@@ -24,6 +24,8 @@ btn.onclick = () => {
 
   const userList = createUserList(filterName);
   mainElement.appendChild(userList);
+
+  console.log(myUsers);
 };
 
 document.addEventListener('DOMContentLoaded', () => {
